@@ -54,26 +54,34 @@ body{
 	background-color: lightgoldenrodyellow;
 	font-size: 1em;
 	box-shadow: .12em;
-	padding-left: 20%;
-	padding-right: 18%;
+	padding-left: 5%;
+	padding-right:8%;
 	padding-top: 40px;
 	padding-bottom: 30px;
-	flex-flow: row;
+}
+
+.top-flex{
+	display: flex;
+	flex-direction: row;
 }
 
 .top-col{
 	background-color: darkseagreen;
-	font-size: .9em;
+	font-size: 1.05em;
 	font-style: italic;
+	width: 40%;
 	padding-left: 4%;
 	padding-right: 5%;
 	padding-top: 20px;
 	padding-bottom: 20px;
+	margin-left: 10px;
+	margin-right: 10px;
 }
 
 .btn{
 	background-color: blanchedalmond;
 	font-size: .87em;
+	margin-top: 10px;
 	border-radius: 7px;
 	border: 2px solid black;
 }

@@ -47,16 +47,18 @@ Pizza.prototype.priceTab = function() {
 
 // User Interface Logic
 
-function formSubmitHandler(event){
-	event.preventDefault();
-
-	const sizeSelect = document.getElementById("pizza-size");
+function dropdownListen(){
+	const sizeSelect = document.getElementById("size-submit-1");
 	const topSubmit = document.getElementById("top-submit-1");
 
 	sizeSelect.addEventListener("click", function(){
 		console.log("inside select listener")
-		topSubmit.removeAttribute("class", "hidden");
+		topSubmit.classList.remove("hidden");
 	})
+}
+
+function formSubmitHandler(event){
+	event.preventDefault();
 
 	const size = document.getElementById("pizza-size").value;
 	const toppings = document.querySelectorAll("input[name=toppings]:checked");
@@ -107,6 +109,7 @@ function formSubmitHandler(event){
 }
 
 window.addEventListener("load", function(){
+	dropdownListen();
 	let form = document.getElementById("order-form");
 	form.addEventListener("submit", formSubmitHandler);
 })
