@@ -34,7 +34,7 @@ Expected Output = 46.38
 
 #### test: pizza can take no toppings and will have base size price
 
-code: const pizza2 = new Pizza (large);
+code: const pizza2 = new Pizza ("large");
 pizza2.priceTab();
 console.log(pizza2.price)
 
