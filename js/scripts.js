@@ -1,11 +1,8 @@
 // Business Logic
 
 function Pizza(size, toppings){
-	console.log(toppings)
 	this.toppings = Array.from(toppings);
 	this.size = size;
-	console.log(this.toppings)
-	console.log(typeof this.toppings)
 	this.price = 0;
 }
 
@@ -52,7 +49,6 @@ function dropdownListen(){
 	const topSubmit = document.getElementById("top-submit-1");
 
 	sizeSelect.addEventListener("click", function(){
-		console.log("inside select listener")
 		topSubmit.classList.remove("hidden");
 	})
 }
@@ -64,11 +60,9 @@ function formSubmitHandler(event){
 	const toppings = document.querySelectorAll("input[name=toppings]:checked");
 	const toppingsArray = Array.from(toppings);
 	
-	
 	let pizza = new Pizza(size, toppings);
 	pizza.priceTab();
-
-
+	
 	const orderBox = document.getElementById("order-summary");
 	orderBox.innerText = null
 
