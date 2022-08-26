@@ -13,3 +13,12 @@ code: const pepAndOlivePizza = new Pizza(["pepperoni", "olive], "large")
 console.log(pepAndOlivePizza.size)
 
 Expected Output: 0
+
+### describe Pizza.prototype.priceTab();
+
+#### test: method modifies Pizza.price value based upon topping and size values of Pizza
+
+code: const pepAndOlivePizza = new Pizza(["pepperoni", "olive], "large")
+console.log(pepAndOlivePizza.price);
+
+Expected Output = 14
