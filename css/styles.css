@@ -1,0 +1,17 @@
+body{
+	background-color: darkseagreen;
+	font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.top-bar{
+	background-image: url("../img/hungryhyramheader.png");
+	background-color: blanchedalmond;
+	width: auto;
+	height: 275px;
+	padding-left: 24%;
+	padding-right: 20%;
+	padding-bottom:60px;
+	padding-top: 110px;
+	box-sizing: border-box;
+	font-size: 1.5em;
+}
