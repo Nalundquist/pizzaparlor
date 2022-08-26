@@ -1,15 +1,18 @@
 // Business Logic
 
 function Pizza(size, toppings){
-	this.toppings = toppings;
+	console.log(toppings)
+	this.toppings = Array.from(toppings);
 	this.size = size;
+	console.log(this.toppings)
+	console.log(typeof this.toppings)
 	this.price = 0;
 }
 
 Pizza.prototype.priceTab = function() {
 	if (this.size === "small"){
 		this.price += 8.99;
-		if (typeof this.toppings != Object)	{
+		if (typeof this.toppings != "object")	{
 			return this.price;
 		} else {
 			this.price = this.price + (2.49 * this.toppings.length)
@@ -17,7 +20,7 @@ Pizza.prototype.priceTab = function() {
 		}
 	} else if (this.size === "medium"){
 		this.price += 10.99; 
-		if (typeof this.toppings != Object)	{
+		if (typeof this.toppings != "object")	{
 			return this.price;
 		} else {
 			this.price = this.price + (2.99 * this.toppings.length)
@@ -25,7 +28,7 @@ Pizza.prototype.priceTab = function() {
 		}
 	} else if (this.size === "large"){
 		this.price += 13.99;
-		if (typeof this.toppings != NodeList && typeof this.toppings != String && typeof this.toppings != Object)	{
+		if (typeof this.toppings != "object")	{
 			console.log("inside empty toppings")
 			console.log(typeof this.toppings);
 			return this.price;
@@ -36,7 +39,7 @@ Pizza.prototype.priceTab = function() {
 		}
 	} else {
 		this.price += 16.99;
-		if (typeof this.toppings != Object || typeof this.toppings != String)	{
+		if (typeof this.toppings != "object")	{
 			return this.price;
 		} else {
 			this.price = this.price + (5.49 * this.toppings.length)
