@@ -62,12 +62,29 @@ function formSubmitHandler(event){
 
 	const size = document.getElementById("pizza-size").value;
 	const toppings = document.querySelectorAll("input[name=toppings]:checked");
+	const toppingsText = document.querySelectorAll("input[name=toppings]:checked").value;
 	
 	let pizza = new Pizza(size, toppings);
 	pizza.priceTab();
 	
+	let toppingList = ""
+	if (typeof pizza.toppings != "object") {
+		toppingList = "Cheese";
+	} else {
+		const toppingArray = Array.from(toppingsText);
+		console.log(typeof toppingArray);
+		console.log(toppingArray);
+		console.log(toppingArray.length);
+		for (let i = 0; i <= toppingArray.length - 1; i++){
+			toppingList = toppingList.concat(toppingArray[i] + ", ");
+		}
+	}
+	
+	
+
 	const orderBox = document.getElementById("order-summary");
 	orderBox.innerText = null
+
 
 	const h1 = document.createElement("h1");
 	const sizeh3 = document.createElement("h3");
@@ -90,11 +107,11 @@ function formSubmitHandler(event){
 	sizeh4.after(toph3);
 	toph3.append("Toppings: ");
 	toph3.after(toph4);
-	toph4.append(pizza.toppings.toString());
+	toph4.append(toppingList);
 	toph4.after(priceh3);
-	priceh3.append("Total: $");
+	priceh3.append("Total:");
 	priceh3.after(priceh4);
-	priceh4.append(pizza.price);
+	priceh4.append("$" + parseFloat(pizza.price).toFixed(2));
 }
 
 window.addEventListener("load", function(){
