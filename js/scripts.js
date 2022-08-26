@@ -9,15 +9,15 @@ function Pizza(size, toppings){
 Pizza.prototype.priceTab = function() {
 	if (this.size === "small"){
 		this.price += 8.99;
-		if (typeof this.toppings != Object || typeof this.toppings != String)	{
+		if (typeof this.toppings != Object)	{
 			return this.price;
 		} else {
 			this.price = this.price + (2.49 * this.toppings.length)
 			return this.price
 		}
 	} else if (this.size === "medium"){
-		this.price += 10.99;
-		if (typeof this.toppings != Object || typeof this.toppings != String)	{
+		this.price += 10.99; 
+		if (typeof this.toppings != Object)	{
 			return this.price;
 		} else {
 			this.price = this.price + (2.99 * this.toppings.length)
@@ -25,10 +25,13 @@ Pizza.prototype.priceTab = function() {
 		}
 	} else if (this.size === "large"){
 		this.price += 13.99;
-		if (typeof this.toppings != Object || typeof this.toppings != String)	{
+		if (typeof this.toppings != NodeList && typeof this.toppings != String && typeof this.toppings != Object)	{
+			console.log("inside empty toppings")
+			console.log(typeof this.toppings);
 			return this.price;
 		} else {
 			this.price = this.price + (3.99 * this.toppings.length)
+			console.log("inside priceTab, this.price is: " + this.price)
 			return this.price
 		}
 	} else {
@@ -71,6 +74,10 @@ function formSubmitHandler(event){
 	const toph4 = document.createElement("h4");
 	const priceh4 = document.createElement("h4");
 
+	console.log("price =" + pizza.price);
+	console.log("toppings are: " + pizza.toppings)
+	console.log(pizza)
+
 	orderBox.append(h1);
 	h1.append("Pizza Ordered!");
 	h1.after(sizeh3);
@@ -80,7 +87,7 @@ function formSubmitHandler(event){
 	sizeh4.after(toph3);
 	toph3.append("Toppings: ");
 	toph3.after(toph4);
-	toph4.append(pizza.toppings);
+	toph4.append(pizza.toppings.toString());
 	toph4.after(priceh3);
 	priceh3.append("Total: $");
 	priceh3.after(priceh4);
