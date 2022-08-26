@@ -22,3 +22,10 @@ code: const pepAndOlivePizza = new Pizza(["pepperoni", "olive], "large")
 console.log(pepAndOlivePizza.price);
 
 Expected Output = 14
+
+#### test: pizza price is modified by topping values independent of size
+
+code: const pizza1 = new Pizza(["escargot", "chevre"], "gargantuan");
+console.log(pizza1.price);
+
+Expected Output = 46.38
