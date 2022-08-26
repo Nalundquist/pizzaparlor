@@ -10,7 +10,7 @@ function Pizza(size, toppings){
 }
 
 Pizza.prototype.priceTab = function() {
-	if (this.size === "small"){
+	if (this.size === "Small"){
 		this.price += 8.99;
 		if (typeof this.toppings != "object")	{
 			return this.price;
@@ -18,7 +18,7 @@ Pizza.prototype.priceTab = function() {
 			this.price = this.price + (2.49 * this.toppings.length)
 			return this.price
 		}
-	} else if (this.size === "medium"){
+	} else if (this.size === "Medium"){
 		this.price += 10.99; 
 		if (typeof this.toppings != "object")	{
 			return this.price;
@@ -26,15 +26,12 @@ Pizza.prototype.priceTab = function() {
 			this.price = this.price + (2.99 * this.toppings.length)
 			return this.price
 		}
-	} else if (this.size === "large"){
+	} else if (this.size === "Large"){
 		this.price += 13.99;
 		if (typeof this.toppings != "object")	{
-			console.log("inside empty toppings")
-			console.log(typeof this.toppings);
 			return this.price;
 		} else {
 			this.price = this.price + (3.99 * this.toppings.length)
-			console.log("inside priceTab, this.price is: " + this.price)
 			return this.price
 		}
 	} else {
@@ -62,41 +59,23 @@ function formSubmitHandler(event){
 
 	const size = document.getElementById("pizza-size").value;
 	const toppings = document.querySelectorAll("input[name=toppings]:checked");
-	const toppingsText = document.querySelectorAll("input[name=toppings]:checked").value;
+	const toppingsArray = Array.from(toppings);
+	
 	
 	let pizza = new Pizza(size, toppings);
 	pizza.priceTab();
-	
-	let toppingList = ""
-	if (typeof pizza.toppings != "object") {
-		toppingList = "Cheese";
-	} else {
-		const toppingArray = Array.from(toppingsText);
-		console.log(typeof toppingArray);
-		console.log(toppingArray);
-		console.log(toppingArray.length);
-		for (let i = 0; i <= toppingArray.length - 1; i++){
-			toppingList = toppingList.concat(toppingArray[i] + ", ");
-		}
-	}
-	
-	
+
 
 	const orderBox = document.getElementById("order-summary");
 	orderBox.innerText = null
-
 
 	const h1 = document.createElement("h1");
 	const sizeh3 = document.createElement("h3");
 	const toph3 = document.createElement("h3");
 	const priceh3 = document.createElement("h3");
 	const sizeh4 = document.createElement("h4");
-	const toph4 = document.createElement("h4");
+	const topul = document.createElement("ul");
 	const priceh4 = document.createElement("h4");
-
-	console.log("price =" + pizza.price);
-	console.log("toppings are: " + pizza.toppings)
-	console.log(pizza)
 
 	orderBox.append(h1);
 	h1.append("Pizza Ordered!");
@@ -106,9 +85,21 @@ function formSubmitHandler(event){
 	sizeh4.append(pizza.size);
 	sizeh4.after(toph3);
 	toph3.append("Toppings: ");
-	toph3.after(toph4);
-	toph4.append(toppingList);
-	toph4.after(priceh3);
+	toph3.after(topul);
+	
+	if (pizza.toppings.length <= 0){
+		const li = document.createElement("li");
+		topul.append(li);
+		li.append("Cheese");
+	} else {
+		for (i = 0; i <= toppingsArray.length - 1; i++){
+			const li = document.createElement("li");
+			topul.append(li);
+			li.append(toppingsArray[i].value);
+		}
+	}
+
+	topul.after(priceh3);
 	priceh3.append("Total:");
 	priceh3.after(priceh4);
 	priceh4.append("$" + parseFloat(pizza.price).toFixed(2));
