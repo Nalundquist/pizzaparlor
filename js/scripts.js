@@ -53,7 +53,8 @@ function formSubmitHandler(event){
 	const sizeSelect = document.getElementById("pizza-size");
 	const topSubmit = document.getElementById("top-submit-1");
 
-	sizeSelect.addEventListener("select", function(){
+	sizeSelect.addEventListener("click", function(){
+		console.log("inside select listener")
 		topSubmit.removeAttribute("class", "hidden");
 	})
 
