@@ -62,7 +62,7 @@ function formSubmitHandler(event){
 	
 	let pizza = new Pizza(size, toppings);
 	pizza.priceTab();
-	
+
 	const orderBox = document.getElementById("order-summary");
 	orderBox.innerText = null
 
@@ -70,7 +70,7 @@ function formSubmitHandler(event){
 	const sizeh3 = document.createElement("h3");
 	const toph3 = document.createElement("h3");
 	const priceh3 = document.createElement("h3");
-	const sizeh4 = document.createElement("h4");
+	const sizep = document.createElement("p");
 	const topul = document.createElement("ul");
 	const priceh4 = document.createElement("h4");
 
@@ -78,9 +78,9 @@ function formSubmitHandler(event){
 	h1.append("Pizza Ordered!");
 	h1.after(sizeh3);
 	sizeh3.append("Size: ");
-	sizeh3.after(sizeh4);
-	sizeh4.append(pizza.size);
-	sizeh4.after(toph3);
+	sizeh3.after(sizep);
+	sizep.append(pizza.size);
+	sizep.after(toph3);
 	toph3.append("Toppings: ");
 	toph3.after(topul);
 	
@@ -100,6 +100,7 @@ function formSubmitHandler(event){
 	priceh3.append("Total:");
 	priceh3.after(priceh4);
 	priceh4.append("$" + parseFloat(pizza.price).toFixed(2));
+	orderBox.classList.remove("hidden");
 }
 
 window.addEventListener("load", function(){

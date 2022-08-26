@@ -9,7 +9,7 @@
 
 ## Description
 
-Website for your favorite local pizza parlor.  Makes use of constructors and prototype methods to display orders and price totals.
+Website for your favorite local pizza parlor.  Makes use of constructors and prototype methods to display orders and price totals.  Prices quickly escalate as you add toppings at larger sizes.  Please keep your budget in mind when ordering a "Hungry Hyram".
 
 ## Features
 
@@ -29,7 +29,7 @@ Website for your favorite local pizza parlor.  Makes use of constructors and pro
 
 * Tested in the following browsers:
 	* Google Chrome (v.104.0)
-	* Firefox (v.103.0.2)
+	* Firefox (v.104)
 	* Microsoft Edge (v.104.0)
 
 ## Installation

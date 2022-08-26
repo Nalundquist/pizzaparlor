@@ -87,8 +87,11 @@ body{
 	margin-top: 20px;
 	background-color: lightgoldenrodyellow;
 	font-size: 1em;
-	padding-left: 20%;
-	padding-right: 18%;
+	padding-left: 15%;
+	padding-right: 15%;
 	padding-top: 40px;
 	padding-bottom: 30px;
+	margin-left:24%;
+	margin-right: 24%;
+	margin-bottom: 100px;
 }
